@@ -17,3 +17,18 @@ You need a running Kubernetes cluster.
 
     ![gcp.console.kubernetes.workload.istio.init](img/demo-init-1.png)
 
+## Deploy a sample application
+- Run the app script [demo-run-app.sh](demo-run-app.sh) to deploy our [app](https://istio.io/docs/examples/bookinfo/)
+
+  ![run app script logs](img/demo-run-app-1.png)
+
+  Accessing the app following the logged url: http://104.197.220.220:80/productpage
+  ![run app script logs](img/app-home-page.png)
+
+- Check deployment status (kubernetes namespace=default)
+
+  - On terminal using command: `kubectl get pods --namespace default`
+    ![kubectl get pods logs](img/demo-run-app-2.png)
+
+  - On [workload GCP console](https://console.cloud.google.com/kubernetes/workload)
+    ![gcp.console.kubernetes.workload.app](img/demo-run-app-3.png)
