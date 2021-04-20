@@ -32,3 +32,95 @@ You need a running Kubernetes cluster.
 
   - On [workload GCP console](https://console.cloud.google.com/kubernetes/workload)
     ![gcp.console.kubernetes.workload.app](img/demo-run-app-3.png)
+
+## Install the Istio tools (UIs)
+- The available tools UIs:
+
+  ![kiali graph](img/tools-UIs.png)
+
+- Run the Istio tools setup script [demo-tools.s](demo-tools.sh)
+
+  ![tools script logs](img/demo-tools-1.png)
+  ![tools script logs](img/demo-tools-2.png)
+
+- Check deployment status (kubernetes namespace=istio-system)
+
+  - On terminal using command: `kubectl get pods --namespace istio-system`
+    ![kubectl get pods logs](img/demo-tools-3.png)
+
+  - On [workload GCP console](https://console.cloud.google.com/kubernetes/workload)
+    ![gcp.console.kubernetes.workload.app](img/demo-tools-4.png)
+
+- #### Grafana
+
+  Run this command to start a proxy session accessing Grafana service UI
+    ````shell script
+    istioctl dashboard grafana
+    ````
+  ![grafana home](img/grafana-home.png)
+
+  ![grafana query](img/grafana-query.png)
+
+  We will download [grafana-istio-mesh-dashboard.json](grafana-istio-mesh-dashboard.json)
+  from [grafana dashboards repository](https://grafana.com/grafana/dashboards/7639)
+  and import it on grafana UI. Will produce the following dashboards:
+
+  ![grafana mesh dashboard](img/grafana-mesh-dashboard.png)
+
+  Dashboard of a specific pod (productpage)
+
+  ![grafana productpage pod](img/grafana-productpage-1.png)
+
+  ![grafana productpage pod](img/grafana-productpage-2.png)
+
+  ![grafana productpage pod](img/grafana-productpage-2.png)
+
+- #### Jaeger
+  Run this command to start a proxy session accessing jaeger service UI
+    ````shell script
+    istioctl dashboard jaeger
+    ````
+  ![jaeger home](img/jaeger-home.png)
+
+  ![jaeger detail](img/jaeger-detail.png)
+
+- #### Kiali
+
+  Start a proxy session rooting to Kiali service UI using command
+    ````shell script
+    istioctl dashboard kiali
+    ````
+  ![kiali graph](img/kiali-1.png)
+
+  ![kiali graph](img/kiali-2.png)
+
+  ![kiali graph](img/kiali-3.png)
+
+  ![kiali graph](img/kiali-4.png)
+
+  ![kiali graph](img/kiali-5.png)
+
+- #### Prometheus
+  Run this command to start a proxy session accessing Prometheus service UI
+    ````shell script
+    istioctl dashboard prometheus
+    ````
+  ![prometheus](img/prometheus.png)
+
+  ![prometheus target](img/prometheus-target.png)
+
+  ![prometheus service discovery](img/prometheus-target.png)
+
+- #### Zipkin
+  Run this command to start a proxy session accessing zipkin service UI
+    ````shell script
+    istioctl dashboard zipkin
+    ````
+  ![zipkin](img/zipkin-1.png)
+
+  ![zipkin](img/zipkin-2.png)
+
+  ![zipkin](img/zipkin-3.png)
+
+  ![zipkin](img/zipkin-4.png)
+    
